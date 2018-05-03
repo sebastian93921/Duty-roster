@@ -6,6 +6,8 @@
 
 
 ## Build Setup For Duty Roster Website
+- Path: job-selector
+- Website built in Vue.js
 
 ``` bash
 # install dependencies
@@ -24,6 +26,8 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## Build Setup For Duty Roster server
+- Path: job-server
+- Application built in Go Language
 
 ``` bash
 # Local application compile
