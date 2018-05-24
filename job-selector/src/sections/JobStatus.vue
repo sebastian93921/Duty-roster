@@ -40,8 +40,9 @@
 
 <script>
 import moment from 'moment'
+import axios from 'axios'
 
-var sendPhoneNo = "85292516517"
+var sendPhoneNo = ""
 
 export default {
   data (){
@@ -78,6 +79,12 @@ export default {
       this.senderror = ''
       this.uiNumber = ''
     }
+  },
+  mounted() {
+    axios.get(window.location.origin+"/static/site-config.json").then((response) => {
+      console.log("Request Phone", window.location, response.data.phone)
+      sendPhoneNo = response.data.phone
+    });
   }
 }
 
