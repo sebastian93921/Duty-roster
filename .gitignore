@@ -1,4 +1,4 @@
 
-job-selector/node_modules/
-job-selector/dist/
+node_modules/
+dist/
 job-server/target/
