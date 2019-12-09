@@ -1,10 +1,5 @@
 # Duty Roster
 
-## Sub Module
-- Job-selector (Duty Roster Website)
-- Job-server (Backend receiver)
-
-
 ## Build Setup For Duty Roster Website
 - Path: job-selector
 - Website built in Vue.js
