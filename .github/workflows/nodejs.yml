@@ -25,6 +25,6 @@ jobs:
       run: |
         uses: peaceiris/actions-gh-pages@v2.4.0
       env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        ACTIONS_DEPLOY_KEY: 3328898502ce1e1b22f95349ada5f7aeaef05be5
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./dist
