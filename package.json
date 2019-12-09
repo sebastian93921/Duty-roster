@@ -4,6 +4,7 @@
   "description": "job-selector web page",
   "author": "Sebastian Ko",
   "private": true,
+  "homepage": "https://sebastian93921.github.io/duty-roster",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
