@@ -60,14 +60,13 @@ export default {
   },
   methods: {
     sendToWhatsapp(job, uiNumber){
-      if(!uiNumber){
+      if(uiNumber){
         if(moment().isBefore(moment(job.date, 'DD-MM-YYYY'))){
           var messageToWhatsapp = "[ Auto Message ] 隊員 *"+uiNumber+"* 報更 %0D%0A"+
                                   "標題： *"+job.activityName+"* %0D%0A"+
                                   "更號： *"+job.dutyKey+"* %0D%0A"+
                                   "日期： *"+job.date+" / "+job.time+"* %0D%0A"
-          var res = encodeURI(messageToWhatsapp)
-          window.location.href = "https://api.whatsapp.com/send?phone="+sendPhoneNo+"&text="+res
+          window.location.href = "https://api.whatsapp.com/send?phone="+sendPhoneNo+"&text="+messageToWhatsapp
         }else{
           this.senderror = "所報的更份已經過期"
         }
