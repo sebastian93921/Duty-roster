@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import Vue from 'vue'
 import App from './App'
@@ -37,10 +38,11 @@ import 'normalize.css'
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  render: h => h(App)
+    el: '#app',
+    router,
+    components: { App },
+    render: h => h(App),
+    vuetify: new Vuetify()
 })
 
 var scrollDuration = 800

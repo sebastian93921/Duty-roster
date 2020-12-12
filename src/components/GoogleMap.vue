@@ -23,7 +23,6 @@
 </template>
 
 <script>
-var comLoc
 export default {
   name: "GoogleMap",
   data() {

@@ -1,8 +1,6 @@
-<template>
-
-</template>
 
 <script>
+
 var contentConfig = { resumeView : false }
 
 function setToResumeView(){

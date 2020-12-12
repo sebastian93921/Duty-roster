@@ -29,6 +29,7 @@ export default {
   components: {
     ToolBar,
 
+    // eslint-disable-next-line vue/no-unused-components
     SectionHome,
 
     Footer

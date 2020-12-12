@@ -13,14 +13,6 @@
       </template>
       <v-toolbar-title>{{ nav.navTitle }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <template v-if="nav.isHomePage">
-        <v-btn icon to="/" @click="calMonthView">
-          <v-icon>date_range</v-icon>
-        </v-btn>
-        <v-btn icon to="/" @click="calListMonthView">
-          <v-icon>view_list</v-icon>
-        </v-btn>
-      </template>
     </v-toolbar>
   </v-fade-transition>
 </template>
@@ -42,18 +34,13 @@ export default {
   },
 
   methods: {
+    /* eslint-disable */
     handleScroll: function (event) {
       if(window.scrollY < $(window).height() * 0.4){
         navConfig.show = true
       }else{
         navConfig.show = false
       }
-    },
-    calMonthView: function(){
-      $('#calendar').fullCalendar('changeView', 'month')
-    },
-    calListMonthView: function(){
-      $('#calendar').fullCalendar('changeView', 'listMonth')
     },
   },
 

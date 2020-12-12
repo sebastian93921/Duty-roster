@@ -19,7 +19,8 @@ home
       >
         <full-calendar
           :events="events.calendarEvents"
-          :config="config" />
+          :config="config"
+          ref="calendar" />
       </v-layout>
     </div> <!-- end home-content -->
     <div id="job-status">
@@ -31,6 +32,8 @@ home
 </template>
 
 <script>
+/* eslint-disable no-unused-vars,no-mixed-spaces-and-tabs,no-useless-escape,no-redeclare */
+
 import SwitchContentService_ from '../services/SwitchContentService'
 import ToolBar from '../components/ToolBar'
 import JobStatus from './JobStatus'
@@ -75,7 +78,7 @@ export default {
           doEventClick (calEvent, jsEvent, view)
         },
         dayClick: function(date){
-          $('#calendar').fullCalendar('changeView', 'agendaDay', date)
+          this.$refs.calendar.fireMethod('changeView', 'agendaDay', date)
         },
         viewRender: function (view, element) {
           exportData.loading = true;
@@ -91,9 +94,9 @@ export default {
   methods: {
     swipe (direction) {
       if( direction == 'L' ){
-        $('#calendar').fullCalendar('next');
+        this.$refs.calendar.fireMethod('next');
       }else if( direction == 'R' ){
-        $('#calendar').fullCalendar('prev');
+        this.$refs.calendar.fireMethod('prev');
       }
     }
   },
@@ -113,7 +116,7 @@ function doEventClick (event, jsEvent, views) {
 }
 
 function genCal(month){
-  axios.get(window.location.origin+"/static/site-config.json").then((response) => {
+  axios.get(window.location.origin+"/site-config.json").then((response) => {
     exportData.calendarEvents = []
     
     if(!response.data.currentGooglePathCsv){
