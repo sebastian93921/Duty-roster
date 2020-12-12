@@ -5,20 +5,40 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
+  build-vue-and-deploy:
+    name: Build and deploy gh-pages
+    env:
+      MY_SECRET   : ${{ secrets.ACTIONS_DEPLOY_KEY }}
+      USER_NAME   : sebastian93921
+      USER_EMAIL  : sebastian93921@gmail.com
+      PUBLISH_DIR : ./dist
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Build
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm install
       run: |
         npm install
-        npm run-script build
-
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        BRANCH: gh-pages
-        FOLDER: dist
+    - name: npm run build
+      run: |
+        npm run gulp m
+        npm run build
+    - name: Commit files
+      run: |
+        cd $PUBLISH_DIR
+        git init
+        git config --local user.name $USER_NAME
+        git config --local user.email $USER_EMAIL
+        git status
+        git remote add origin https://$MY_SECRET@github.com/$GITHUB_REPOSITORY.git
+        git checkout -b gh-pages
+        git add --all
+        git commit -m "deploy to Github pages"
+        git push origin gh-pages -f
+        echo 🤘 deploy gh-pages complete.
