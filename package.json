@@ -26,7 +26,7 @@
     "jquery": "^3.5.1",
     "js-yaml": "^3.14.1",
     "material-design-icons-iconfont": "^3.0.3",
-    "moment": "^2.22.1",
+    "moment": "^2.29.2",
     "normalize.css": "^8.0.0",
     "npm": "^7.1.2",
     "outlayer": "^2.1.1",
